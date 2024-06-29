@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { useRouter } from "vue-router/composables";
 
 import { getGalaxyInstance } from "@/app";
 import { useConfig } from "@/composables/config";
+import { withPrefix } from "@/utils/redirect";
 
 import ChangePassword from "@/components/Login/ChangePassword.vue";
 import LoginIndex from "@/components/Login/LoginIndex.vue";
@@ -17,6 +18,15 @@ const hasToken = computed(() => {
 const sessionCsrfToken = computed(() => {
     return getGalaxyInstance().session_csrf_token;
 });
+
+watch(
+    () => config.value,
+    (newValue) => {
+        if (newValue.fixed_delegated_auth) {
+            window.location = withPrefix("/login") as unknown as Location;
+        }
+    }
+);
 </script>
 
 <template>
