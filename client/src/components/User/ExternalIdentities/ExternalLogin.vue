@@ -172,7 +172,7 @@ function getIdpPreference() {
 
         <BForm id="externalLogin">
             <!-- OIDC login-->
-            <hr class="my-4" />
+            <hr v-if="config.show_galaxy_login && props.loginPage" class="my-4" />
 
             <div v-if="cilogonListShow" class="cilogon">
                 <div v-if="props.loginPage">

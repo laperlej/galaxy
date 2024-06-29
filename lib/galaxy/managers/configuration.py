@@ -226,7 +226,8 @@ class ConfigSerializer(base.ModelSerializer):
             "instance_access_url": _use_config,
             "organization_name": _use_config,
             "organization_url": _use_config,
-            "fixed_delegated_auth": _defaults_to(False),
+            "fixed_delegated_auth": _use_config,
+            "show_galaxy_login": _defaults_to(True),
             "help_forum_api_url": _use_config,
             "enable_help_forum_tool_panel_integration": _use_config,
         }

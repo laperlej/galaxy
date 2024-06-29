@@ -39,6 +39,7 @@ const sessionCsrfToken = computed(() => {
             :registration-warning-message="config.registration_warning_message"
             :server-mail-configured="config.server_mail_configured"
             :session-csrf-token="sessionCsrfToken"
+            :show-galaxy-login="config.show_galaxy_login"
             :show-welcome-with-login="config.show_welcome_with_login"
             :show-reset-link="config.enable_account_interface"
             :terms-url="config.terms_url"

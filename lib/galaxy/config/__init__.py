@@ -704,6 +704,7 @@ class GalaxyAppConfiguration(BaseAppConfiguration, CommonConfigurationMixin):
     drmaa_external_runjob_script: str
     email_from: Optional[str]
     enable_tool_shed_check: bool
+    fixed_delegated_auth: bool
     galaxy_data_manager_data_path: str
     galaxy_infrastructure_url: str
     hours_between_check: int
@@ -840,7 +841,6 @@ class GalaxyAppConfiguration(BaseAppConfiguration, CommonConfigurationMixin):
         self.builds_file_path = os.path.join(self.tool_data_path, self.builds_file_path)
         self.len_file_path = os.path.join(self.tool_data_path, self.len_file_path)
         self.oidc: Dict[str, Dict] = {}
-        self.fixed_delegated_auth: bool = False
         self.integrated_tool_panel_config = self._in_managed_config_dir(self.integrated_tool_panel_config)
         integrated_tool_panel_tracking_directory = kwargs.get("integrated_tool_panel_tracking_directory")
         if integrated_tool_panel_tracking_directory:

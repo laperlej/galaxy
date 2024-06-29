@@ -17,6 +17,7 @@ interface Props {
     preferCustosLogin?: boolean;
     serverMailConfigured?: boolean;
     showWelcomeWithLogin?: boolean;
+    showGalaxyLogin?: boolean;
     registrationWarningMessage?: string;
 }
 
@@ -46,6 +47,7 @@ function toggleLogin() {
             :redirect="redirect"
             :registration-warning-message="registrationWarningMessage"
             :session-csrf-token="sessionCsrfToken"
+            :show-galaxy-login="showGalaxyLogin"
             :show-welcome-with-login="showWelcomeWithLogin"
             :terms-url="termsUrl"
             :welcome-url="welcomeUrl"

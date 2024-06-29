@@ -31,6 +31,7 @@ interface Props {
     enableOidc?: boolean;
     showResetLink?: boolean;
     allowUserCreation?: boolean;
+    showGalaxyLogin?: boolean;
     showWelcomeWithLogin?: boolean;
     registrationWarningMessage?: string;
 }
@@ -167,7 +168,7 @@ function returnToLogin() {
                             </BCardHeader>
 
                             <BCardBody>
-                                <div>
+                                <div v-if="showGalaxyLogin">
                                     <!-- standard internal galaxy login -->
                                     <BFormGroup
                                         :label="localize('Public Name or Email Address')"

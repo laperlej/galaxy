@@ -3010,6 +3010,13 @@ mapping:
           Currently, only * is recognised as a valid scope, and future iterations may
           provide more fine-grained scopes.
 
+      fixed_delegated_auth:
+        type: bool
+        default: false
+        required: false
+        desc: |
+          Enables and disables OpenID Connect (OIDC) support.
+
       auth_config_file:
         type: str
         default: auth_conf.xml

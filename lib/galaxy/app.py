@@ -800,9 +800,10 @@ class UniverseApplication(StructuredApp, GalaxyManagerApplication):
             # If there is only a single external authentication provider in use
             # TODO: Future work will expand on this and provide an interface for
             # multiple auth providers allowing explicit authenticated association.
-            self.config.fixed_delegated_auth = (
+            self.config.fixed_delegated_auth = self.config.enable_oidc and self.config.fixed_delegated_auth and (
                 len(list(self.config.oidc)) == 1 and len(list(self.auth_manager.authenticators)) == 0
             )
+            self.config.show_galaxy_login = len(list(self.auth_manager.authenticators)) > 0
 
         if not self.config.enable_celery_tasks and self.config.history_audit_table_prune_interval > 0:
             self.prune_history_audit_task = IntervalTask(
